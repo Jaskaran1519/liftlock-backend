@@ -38,8 +38,10 @@ const plugins = [
   `medusa-payment-manual`,
   {
     resolve: `@medusajs/file-local`,
+    /** @type {import('@medusajs/admin').PluginOptions} */
     options: {
       upload_dir: "uploads",
+      autoRebuild: true,
     },
   },
   {
@@ -76,6 +78,7 @@ const projectConfig = {
   store_cors: STORE_CORS,
   database_url: DATABASE_URL,
   admin_cors: ADMIN_CORS,
+  worker_mode: process.env.MEDUSA_WORKER_MODE,
   // Uncomment the following lines to enable REDIS
   // redis_url: REDIS_URL
 };
